@@ -1,0 +1,287 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f6f8;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.card.completed-card {
+  opacity: 0.7;
+}
+
+/* Header */
+.card-header h2 {
+  margin: 0;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+/* Badge */
+.badge {
+  background: #e53935;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.status {
+  background: #e0e0e0;
+  padding: 4px 10px;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.status.done {
+  background: #4caf50;
+  color: #fff;
+}
+
+.status.pending {
+  background: #fbc02d;
+  color: #000;
+}
+
+.status.done {
+  background: #4caf50;
+}
+
+.status.in-progress {
+  background: linear-gradient(90deg, #fbc02d, #4caf50);
+}
+
+/* Description */
+.description {
+  margin: 15px 0;
+  color: #555;
+}
+
+/* Dates */
+.dates {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* Toggle Switch */
+.toggle-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.switch {
+  position: relative;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 50px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.switch input:focus + .slider {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 30px;
+  inset: 0;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background: #4caf50;
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  background: #eef2f7;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* HIDE CARD CONTENT DURING EDIT */
+.card.editing > *:not(#edit-form) {
+  display: none;
+}
+
+.priority-high { border-left: 5px solid red; }
+.priority-medium { border-left: 5px solid orange; }
+.priority-low { border-left: 5px solid green; }
+
+.completed { text-decoration: line-through; }
+
+.overdue { color: red; }
+
+#edit-form[hidden] {
+  display: none !important;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* EDIT FORM UI */
+#edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 15px;
+}
+
+#edit-form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+#edit-form input,
+#edit-form textarea,
+#edit-form select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+#edit-form input:focus,
+#edit-form textarea:focus,
+#edit-form select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.15);
+}
+
+#edit-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* FORM GRID (DESKTOP) */
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row > div {
+  flex: 1;
+}
+
+/* BUTTONS */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.form-actions button[type="submit"] {
+  background: #111;
+  color: white;
+}
+
+.form-actions button[type="button"] {
+  background: #e53935;
+  color: white;
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+  color: white;
+  cursor: pointer;
+}
+
+button:last-child {
+  background: #e53935;
+}
+
+/* Completed */
+.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Media Responsiveness */
+@media (max-width: 500px) {
+  .form-row {
+    flex-direction: column;
+  }
+}
